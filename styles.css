@@ -1,0 +1,551 @@
+/*-----------------------------------------------------------------
+Colors
+#050203 Rich Black FOGRA 39
+#F2F4FF Ghost White
+#191919 Eerie Black
+#FFF5EA Seashell
+#FAFFFD Baby Powder
+#12130F Smoky Black
+#6E7271 Nickel
+-----------------------------------------------------------------*/
+
+body {
+    margin: 0;
+	font-family: 'Archivo', Helvetica, Arial, sans-serif;
+	font-size: 1em;
+    line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	clear: both;
+}
+
+p {
+	margin-bottom: 1.5em;
+}
+
+/*--------------------------------------------------------------
+General styling
+--------------------------------------------------------------*/
+
+html {
+    scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3 {
+	text-align: center;
+	margin: 0;
+	padding: .5em 0;
+}
+
+h2 {
+    font-family: 'Archivo', Helvetica, Arial, sans-serif; 
+    font-size: 1.2em;
+    padding: 0;
+    font-weight: 600;
+}
+
+p {
+	margin: 0;
+	padding: 1em 0;
+}
+
+.hero {
+	display: block;
+	border: 0;
+	width: 100%;
+	height: auto;
+}
+
+.hero img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* Navigation */
+nav {
+    background: #12130F;
+    width: 100%;
+    z-index: 1000;
+    display: block;
+}
+
+nav a {
+    text-decoration: none;
+    color: #F2F4FF;
+}
+
+nav a:hover {
+    color: #6E7271;
+    transition: .5s;
+}
+
+.left {
+    display: none;
+}
+
+nav ul {
+    text-align: center;
+    list-style-type: none;
+    color: #F2F4FF;
+    font-family: 'Archivo', Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+    display: block;
+} 
+
+.right i {
+    font-size: 1.5em;
+}
+
+nav ul li {
+    position: relative;
+    padding: 1em 0;
+}
+
+nav ul li a {
+    cursor: pointer;
+    padding: 0 1em;
+    margin: 0 -1em;
+}
+
+/* Main section */
+
+figure {
+    margin: 0;
+}
+
+figure a {
+    text-decoration: none;
+    color: #12130F;
+}
+
+figure a:hover {
+    opacity: .6;
+    transition: ease .6s;
+}
+
+/* Footer section */
+footer {
+	padding: 2em;
+	background: #12130F;
+	color: #F2F4FF;
+	text-align: center;
+}
+
+footer a {
+    color: #F2F4FF;
+    text-decoration: none;
+    font-size: 1.5em;
+    padding: 0 .5em;
+}
+
+footer a:hover {
+    color: #6E7271;
+    transition: .6s;
+}
+
+.site {
+    max-width: 100%;
+    display: block;
+}
+
+.wrapper {
+    display: block;
+    max-width: 80%;
+    margin: auto;
+    padding: 1em 0;
+}
+
+.wrapper img {
+    max-width: 100%;
+}
+
+.wrapper figure {
+    padding: 0 0 1em 0;
+}
+
+.subpage {
+    
+}
+
+/*---------------------------------------------------------------------
+Burger
+---------------------------------------------------------------------*/
+
+input#mobile_menu {
+    display: none;
+}
+
+input#mobile_menu:checked + nav {
+    left: -20px;
+}
+
+input#mobile_menu:checked + nav label {
+    background-image: url(images/plus.svg);
+    transform: rotate(225deg);
+    transition: .6s ease;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    vertical-align: middle;
+    justify-content: center;
+}
+
+.burger {
+    width: 200px;
+    background-color:  #F2F4FF;
+    padding: 10px 20px 10px 25px;
+    color: #12130F;
+    box-sizing: border-box;
+    border-radius: 10px;
+    position: relative;
+    left: -200px;
+    transition: left .6s ease-in-out;
+    margin: -5px 0 0 0;
+}
+
+.middle {
+    margin: auto;
+    position: absolute;
+}
+
+.burger a {
+    color: #12130F;
+    text-decoration: none;
+    letter-spacing: .1em;
+    display: block;
+    margin: 0 0 0 -4px;
+    padding: 14px 0 14px 20px;
+    border-top: 1px solid rgba(255,255,255,.1);
+    width: 158px;
+}
+
+.burger a:hover {
+    background: #F3F5FF;
+    color: #4E5261;
+    box-shadow: 0 5px 5px #ccc;
+}
+
+.burger a:first-of-type {
+    border-top: none;
+}
+
+.burger label {
+    cursor: pointer;
+    display: block;
+    width: 60px;
+    height: 60px;
+    background: url(images/plus.svg) no-repeat center center;
+    background-size: 30px auto;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 41%;
+    right: -60px;
+    transition: .6s ease;
+}
+
+/*--------------------------------------------------------------
+Basic responsive layout for all browsers:
+--------------------------------------------------------------*/
+
+.site {
+	max-width: 50em;
+	margin: 0 auto;
+}
+
+/*--------------------------------------------------------------
+CSS Grid layout for modern browsers:
+--------------------------------------------------------------*/
+
+@supports (grid-area: auto) {
+
+    @media screen and (min-width: 600px) {
+
+		.site {
+			max-width: none;
+			display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-areas:
+                "title title title"
+                "masthead masthead masthead"
+                "main main main"
+                "footer footer footer"
+		}
+
+        nav {
+            position: relative;
+            width: 100%;
+            z-index: 1000;
+            display: block;
+        }
+
+        nav ul li {
+            display: inline-block;
+            padding: .7em 2em;
+            letter-spacing: .15em;
+        }
+
+        nav img {
+            max-width: 100%;
+            margin: 0 0 -1em -.5em;
+        }
+
+        .left {
+            display: none;
+        }
+
+        .center {
+            float: none;
+            position: absolute;
+            left: 45%;
+            font-size: 2em;
+            text-align: center;
+            padding: 0;
+            margin: -.6em 0 0 0;
+        }
+
+        .right {
+            float: none;
+        }
+        
+        .masthead {
+			grid-area: masthead;
+        }
+        
+        .hero {
+            display: block;
+            border: 0;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        .hero img {
+            max-width: 100%;
+            height: auto;
+        }
+
+		.main-nav {
+			grid-area: title;
+		}
+
+		.wrapper {
+            grid-area: main;
+            display: grid;
+            max-width: 85%;
+            grid-gap: 2em;
+            grid-template-columns: 1fr 1fr;
+            margin: auto;
+            padding: 3em 0;
+        }
+
+        .wrapper figure {
+            padding: 0;
+        }
+
+        .wrapper img {
+            max-width: 100%;
+        }
+
+        .boxA {
+            grid-column: 1 / 2;
+        }
+
+        .boxB {
+            grid-column: 2 / 3;
+        }
+
+        .boxC {
+            grid-column: 1 / 2;
+        }
+
+        .boxD {
+            grid-column: 2 / 3;
+        }
+
+        .boxE {
+            grid-column: 1 / 2;
+        }
+
+        .boxF {
+            grid-column: 2 / 3;
+        }
+
+		footer {
+            grid-area: footer;
+            text-align: center;
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+            vertical-align: middle;
+        }
+
+        .burger {
+            width: 250px;
+            background-color:  #F2F4FF;
+            padding: 10px 20px 10px 25px;
+            color: #12130F;
+            box-sizing: border-box;
+            border-radius: 10px;
+            position: relative;
+            left: -250px;
+            transition: left .6s ease-in-out;
+            opacity: .9;
+        }
+
+        .burger a {
+            color: #12130F;
+            text-decoration: none;
+            letter-spacing: .1em;
+            display: block;
+            margin: 0 0 0 -4px;
+            padding: 14px 0 14px 20px;
+            width: 208px;
+        }
+
+    }
+
+    @media screen and (min-width: 800px) {
+        .wrapper {
+            grid-area: main;
+            display: grid;
+            max-width: 85%;
+            grid-gap: 2em;
+            grid-template-columns: 1fr 1fr 1fr;
+            margin: auto;
+            padding: 3em 0;
+        }
+
+        .wrapper figure {
+            padding: 0;
+        }
+
+        .wrapper img {
+            max-width: 100%;
+        }
+
+        .boxA {
+            grid-column: 1 / 2;
+        }
+
+        .boxB {
+            grid-column: 2 / 3;
+        }
+
+        .boxC {
+            grid-column: 3 / 4;
+        }
+
+        .boxD {
+            grid-column: 1 / 2;
+        }
+
+        .boxE {
+            grid-column: 2 / 3;
+        }
+
+        .boxF {
+            grid-column: 3 / 4;
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+            vertical-align: middle;
+        }
+
+        .burger {
+            width: 250px;
+            background-color:  #F2F4FF;
+            padding: 10px 20px 10px 25px;
+            color: #12130F;
+            box-sizing: border-box;
+            border-radius: 10px;
+            position: relative;
+            left: -250px;
+            transition: left .6s ease-in-out;
+        }
+
+        .burger a {
+            color: #12130F;
+            text-decoration: none;
+            letter-spacing: .1em;
+            display: block;
+            margin: 0 0 0 -4px;
+            padding: 14px 0 14px 20px;
+            width: 208px;
+        }
+
+    }
+
+    @media screen and (min-width: 1000px) {
+        .wrapper {
+            max-width: 60%;
+        }
+
+        .left {
+            float: left;
+            display: inline;
+        }
+
+        /*---------------------
+        .center {
+            float: none;
+            position: absolute;
+            left: 45%;
+            font-size: 2em;
+            text-align: center;
+            padding: 0;
+            margin: -.6em 0 0 0;
+        }
+        ---------------------*/
+
+        .right {
+            float: right;
+        }
+
+        .hero {
+            display: block;
+            border: 0;
+            width: 100%;
+            height: auto;
+        }
+
+        .burger {
+            width: 250px;
+            background-color:  #F2F4FF;
+            padding: 10px 20px 10px 25px;
+            color: #12130F;
+            box-sizing: border-box;
+            border-radius: 10px;
+            position: relative;
+            left: -250px;
+            transition: left .6s ease-in-out;
+        }
+
+        .burger a {
+            color: #12130F;
+            text-decoration: none;
+            letter-spacing: .1em;
+            display: block;
+            margin: 0 0 0 -4px;
+            padding: 14px 0 14px 20px;
+            width: 208px;
+        }
+        
+    }
+}
